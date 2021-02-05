@@ -1,0 +1,83 @@
+.btn {
+  border: none;
+
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 2px;
+
+  font-weight: 500;
+  font-size: 0.875rem;
+
+  transition: background-color 0.3s ease-out;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &.btn-fill {
+    width: 100%;
+  }
+
+  &.disabled {
+    background: $disabled !important;
+    color: $disabled-foreground !important;
+  }
+
+  @each $name, $color, $foreground-color in $base-colors {
+    &.btn-#{$name} {
+      background: $color;
+      color: $foreground-color;
+
+      &:hover {
+        background: darken($color, 7%);
+      }
+
+      &.loading {
+        background: $color !important;
+        color: $foreground-color !important;
+      }
+
+      svg path {
+        fill: $foreground-color;
+      }
+    }
+  }
+}
+
+.btn-icon {
+  padding: 0;
+
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+
+  svg {
+    width: 32px;
+    height: 32px;
+
+    path {
+      fill: $body-color;
+    }
+  }
+}
+
+.btn-text {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 37px;
+  margin-bottom: 0;
+  display: flex;
+  color: $body-color;
+
+  .icon {
+    height: 21px;
+    width: 21px;
+    margin-left: 24px;
+
+    > svg path {
+      fill: $body-color;
+    }
+  }
+}

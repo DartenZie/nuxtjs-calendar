@@ -1,0 +1,79 @@
+@charset "UTF-8";
+
+:root {
+  --color: #000000;
+  --color-light: #505050;
+  --color-turbo-light: #909090;
+  --bg: #ffffff;
+  --bg-primary: #ffffff;
+  --bg-light: #e7e7e7;
+  --disabled-svg: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f9f9fa' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.dark-mode {
+  --color: #ffffff;
+  --color-light: #a0a0a0;
+  --color-turbo-light: #606060;
+  --bg: #121212;
+  --bg-primary: #000000;
+  --bg-light: #171717;
+  --disabled-svg: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f9f9fa' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/**
+  A dedicated files where are overrides bootstrap variables and defined all new variables that are needed through the whole scss
+ */
+
+// Breakpoints
+
+$grid-breakpoints: (
+  xs: 0px,
+  sm: 768px,
+  md: 996px,
+  lg: 1280px,
+  xl: 1680px
+);
+
+$white: #ffffff;
+$black: #000000;
+
+// Theme colors
+$primary: #ffaf5f;
+$secondary: #03dac6;
+$danger: #ff4444;
+$important: #f06f6f;
+$dark: #303841;
+$success: #4acfac;
+$warning: #ffb900;
+$info: #4acfac;
+
+$primary-foreground: $white;
+$secondary-foreground: $white;
+$danger-foreground: $white;
+$dark-foreground: $white;
+$success-foreground: $white;
+$warning-foreground: $white;
+$info-foreground: $white;
+
+$disabled: #999999;
+$disabled-foreground: $white;
+
+$base-colors: (
+  'primary' $primary $primary-foreground,
+  'info' $info $info-foreground,
+  'danger' $danger $danger-foreground,
+  'warning' $warning $warning-foreground,
+  'success' $success $success-foreground
+);
+
+// Reboot colors
+$body-bg: var(--bg);
+$body-color: var(--color);
+$body-color-light: var(--color-light);
+$body-color-turbo-light: var(--color-turbo-light);
+
+$primary-background: var(--bg-primary);
+$light-background: var(--bg-light);
+
+$disabled-svg: var(--disabled-svg);
+

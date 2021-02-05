@@ -1,0 +1,54 @@
+.calendar {
+  &-conatiner {
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: #fff;
+    max-width: 1200px;
+  }
+
+  &-header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(166, 168, 179, 0.12);
+
+    h1 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    p {
+      margin: 5px 0 0 0;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba($body-color-light, 0.4);
+    }
+
+    button {
+      background: 0;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      color: rgba($body-color-light, 0.7);
+      outline: 0;
+
+      img {
+        height: 24px;
+        width: 24px;
+      }
+    }
+  }
+
+  &-btn {
+    height: 32px !important;
+    line-height: 32px !important;
+    width: auto !important;
+    padding: 0 6px !important;
+    margin: 0 3px !important;
+
+    &.active,
+    &:hover {
+      background: $primary;
+    }
+  }
+}

@@ -13,8 +13,13 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.12.5",
     "@nuxtjs/pwa": "^3.3.5",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "@nuxtjs/svg": "^0.1.12",
+    "bootstrap": "^4.6.0",
+    "bootstrap-vue": "^2.21.2",
     "core-js": "^3.8.3",
-    "nuxt": "^2.14.12"
+    "nuxt": "^2.14.12",
+    "simplebar-vue": "^1.6.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^5.0.0",
@@ -25,6 +30,10 @@
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.5.0",
-    "prettier": "^2.2.1"
+    "node-sass": "^4.14.1",
+    "prettier": "^2.2.1",
+    "raw-loader": "^4.0.2",
+    "sass-loader": "^7.3.1",
+    "vue-svg-loader": "^0.16.0"
   }
 }

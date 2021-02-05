@@ -1,0 +1,102 @@
+.calendar {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(7, minmax(120px, 1fr));
+  grid-template-rows: 34px;
+  grid-auto-rows: 41px;
+  overflow-y: visible;
+
+  &-wrapper {
+    max-height: calc(100vh - 250px);
+  }
+
+  &-group {
+    display: flex;
+  }
+
+  &-cell {
+    border-bottom: 1px solid rgba(166, 168, 179, 0.12);
+    border-right: 1px solid rgba(166, 168, 179, 0.12);
+    position: relative;
+    box-sizing: border-box;
+    pointer-events: none;
+    z-index: 1;
+
+    &:nth-child(7n + 7) {
+      border-right: 0;
+    }
+
+    @for $i from 1 through 288 {
+      &:nth-of-type(n + #{$i * 7 - 6}):nth-of-type(-n + #{$i * 7}) {
+        grid-row: $i;
+      }
+    }
+
+    &:nth-of-type(7n + 1) {
+      grid-column: 1/1;
+    }
+    &:nth-of-type(7n + 2) {
+      grid-column: 2/2;
+    }
+    &:nth-of-type(7n + 3) {
+      grid-column: 3/3;
+    }
+    &:nth-of-type(7n + 4) {
+      grid-column: 4/4;
+    }
+    &:nth-of-type(7n + 5) {
+      grid-column: 5/5;
+    }
+    &:nth-of-type(7n + 6) {
+      grid-column: 6/6;
+    }
+    &:nth-of-type(7n + 7) {
+      grid-column: 7/7;
+    }
+  }
+}
+
+.times {
+  margin-right: 10px;
+
+  .time {
+    line-height: 41px;
+
+    &:first-child {
+      margin-top: 20px;
+    }
+
+    &-header-blank {
+      height: 34px;
+      width: 100%;
+    }
+  }
+}
+
+.task {
+  border-left-width: 3px;
+  padding: 8px 12px;
+  margin: 1px 3px;
+  border-left-style: solid;
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+  align-self: center;
+
+  height: calc(100% - 3px);
+  top: -1px;
+
+  &-name {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  @each $name, $color, $foreground-color in $base-colors {
+    &--#{$name} {
+      border-left-color: $color;
+      background: rgba($color, 0.7);
+      color: $foreground-color;
+    }
+  }
+}

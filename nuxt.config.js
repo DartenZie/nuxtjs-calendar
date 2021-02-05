@@ -17,27 +17,19 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['~/assets/bootstrap.scss', 'simplebar/dist/simplebar.min.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['~/plugins/services.plugin.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: false,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module',
-  ],
+  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/style-resources'],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
-  ],
+  modules: ['@nuxtjs/axios', '@nuxtjs/pwa', 'bootstrap-vue/nuxt'],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
@@ -49,6 +41,32 @@ export default {
     },
   },
 
+  bootstrapVue: {
+    bootstrapCSS: false,
+    bootstrapVueCSS: false,
+  },
+
+  styleResources: {
+    scss: ['./assets/style-resources.scss'],
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    extractCSS: true,
+    splitChunks: {
+      chunks: 'all',
+      automaticNameDelimiter: '.',
+      name: undefined,
+      layouts: true,
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.(vue)$/,
+          chunks: 'all',
+          enforce: true,
+        },
+      },
+    },
+    // extend(config, ctx) {},
+  },
 }

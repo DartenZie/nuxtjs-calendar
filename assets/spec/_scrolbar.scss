@@ -1,0 +1,8 @@
+.simplebar-scrollbar::before {
+  background-color: $primary !important;
+  top: 1px !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 5px !important;
+  border-radius: 0 !important;
+}

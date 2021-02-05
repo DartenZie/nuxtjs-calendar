@@ -1,0 +1,31 @@
+@each $breakpoint, $value in $grid-breakpoints {
+  @if $breakpoint == "xs" {
+    .text-left {
+      text-align: left;
+    }
+    .text-right {
+      text-align: right;
+    }
+    .text-center {
+      text-align: center;
+    }
+    .text-justify {
+      text-align: justify;
+    }
+  } @else {
+    @include respond-from($breakpoint) {
+      .text-#{$breakpoint}-left {
+        text-align: left;
+      }
+      .text-#{$breakpoint}-right {
+        text-align: right;
+      }
+      .text-#{$breakpoint}-center {
+        text-align: center;
+      }
+      .text-#{$breakpoint}-justify {
+        text-align: justify;
+      }
+    }
+  }
+}

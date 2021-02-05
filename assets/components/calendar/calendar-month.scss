@@ -1,0 +1,161 @@
+.calendar {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(7, minmax(120px, 1fr));
+  grid-template-rows: 50px;
+  grid-auto-rows: 120px;
+  overflow: auto;
+}
+
+.day {
+  border-bottom: 1px solid rgba(166, 168, 179, 0.12);
+  border-right: 1px solid rgba(166, 168, 179, 0.12);
+  text-align: right;
+  padding: 8px 14px;
+  letter-spacing: 1px;
+  font-size: 12px;
+  box-sizing: border-box;
+  color: #98a0a6;
+  position: relative;
+  pointer-events: none;
+  z-index: 1;
+
+  &.current {
+    background: rgba($primary, 0.08);
+  }
+
+  &:nth-of-type(7n + 7) {
+    border-right: 0;
+  }
+
+  &:nth-of-type(n + 1):nth-of-type(-n + 7) {
+    grid-row: 2;
+  }
+  &:nth-of-type(n + 8):nth-of-type(-n + 14) {
+    grid-row: 3;
+  }
+  &:nth-of-type(n + 15):nth-of-type(-n + 21) {
+    grid-row: 4;
+  }
+  &:nth-of-type(n + 22):nth-of-type(-n + 28) {
+    grid-row: 5;
+  }
+  &:nth-of-type(n + 29):nth-of-type(-n + 35) {
+    grid-row: 6;
+  }
+
+  &:nth-of-type(7n + 1) {
+    grid-column: 1/1;
+  }
+  &:nth-of-type(7n + 2) {
+    grid-column: 2/2;
+  }
+  &:nth-of-type(7n + 3) {
+    grid-column: 3/3;
+  }
+  &:nth-of-type(7n + 4) {
+    grid-column: 4/4;
+  }
+  &:nth-of-type(7n + 5) {
+    grid-column: 5/5;
+  }
+  &:nth-of-type(7n + 6) {
+    grid-column: 6/6;
+  }
+  &:nth-of-type(7n + 7) {
+    grid-column: 7/7;
+  }
+
+  &-name {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #99a1a7;
+    text-align: center;
+    border-bottom: 1px solid rgba(166, 168, 179, 0.12);
+    line-height: 50px;
+    font-weight: 500;
+  }
+
+  &--disabled {
+    color: rgba(#98a0a6, 0.6);
+    background-color: $body-bg;
+    background-image: $disabled-svg;
+    cursor: not-allowed;
+  }
+}
+
+.task {
+  border-left-width: 3px;
+  padding: 8px 12px;
+  margin: 10px;
+  border-left-style: solid;
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+
+  &-name {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  @each $name, $color, $foreground-color in $base-colors {
+    &--#{$name} {
+      border-left-color: $color;
+      background: rgba($color, 0.7);
+      color: $foreground-color;
+    }
+  }
+
+  &__detail {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: calc(100% + 5px);
+    background: $primary-background;
+    color: $body-color;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    z-index: 2;
+
+    &:after,
+    &:before {
+      bottom: 100%;
+      left: 30%;
+      border-bottom: solid transparent;
+      content: ' ';
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    &:before {
+      border-bottom-color: rgba(166, 168, 179, 0.2);
+      border-width: 8px;
+      margin-left: -8px;
+    }
+
+    &:after {
+      border-bottom-color: #ffffff;
+      border-width: 6px;
+      margin-right: -6px;
+    }
+
+    h2 {
+      font-size: 15px;
+      margin: 0;
+      color: $body-color-light;
+    }
+
+    p {
+      margin-top: 4px;
+      font-size: 12px;
+      margin-bottom: 0;
+      font-weight: 500;
+      color: rgba($body-color-light, 0.7);
+    }
+  }
+}
